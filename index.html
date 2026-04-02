@@ -133,8 +133,9 @@
             cursor: pointer;
         }
 
-        .flip-card:hover .flip-card-inner, 
-        .flip-card:active .flip-card-inner {
+        /* SOPORTE PARA MÓVIL Y PC */
+        .flip-card:hover .flip-card-inner,
+        .flip-card.is-flipped .flip-card-inner {
             transform: rotateY(180deg);
         }
 
@@ -212,7 +213,6 @@
         .separator { width: 50px; height: 2px; background-color: var(--oro-suave); margin: 20px auto; opacity: 0.5; }
         .emocional-tag { font-family: var(--fuente-infantil); font-size: 1.5rem; color: var(--oro-suave); margin-top: 10px; }
 
-        /* ESTILOS DEL PIE DE PÁGINA (ESTUDIO) */
         .studio-footer {
             padding: 40px 20px;
             background-color: var(--bg-seccion-oscura);
@@ -285,19 +285,19 @@
         <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 25px;" data-aos="fade-up">Toca las tarjetas para descubrir sus secretos</p>
         
         <div class="interactive-container">
-            <div class="flip-card" data-aos="zoom-in">
+            <div class="flip-card" onclick="toggleFlip(this)" data-aos="zoom-in">
                 <div class="flip-card-inner">
                     <div class="flip-card-front"><span style="font-size: 1.5rem;">🥣</span><p>Mi comida favorita</p></div>
                     <div class="flip-card-back"><p>¡Amo el puré de calabaza!</p></div>
                 </div>
             </div>
-            <div class="flip-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="flip-card" onclick="toggleFlip(this)" data-aos="zoom-in" data-aos-delay="100">
                 <div class="flip-card-inner">
                     <div class="flip-card-front"><span style="font-size: 1.5rem;">🗣️</span><p>Mi palabra favorita</p></div>
                     <div class="flip-card-back"><p>¡Digo "Mamá" todo el día!</p></div>
                 </div>
             </div>
-            <div class="flip-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="flip-card" onclick="toggleFlip(this)" data-aos="zoom-in" data-aos-delay="200">
                 <div class="flip-card-inner">
                     <div class="flip-card-front"><span style="font-size: 1.5rem;">🦶</span><p>Mi mayor logro</p></div>
                     <div class="flip-card-back"><p>¡Ya doy mis primeros pasitos!</p></div>
@@ -325,11 +325,11 @@
                 <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 10px;">Localidad, Buenos Aires</p>
                 <div class="map-wrap">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.4716766465495!2d-58.58862192425377!3d-34.77023817289569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc5670868777d%3A0xc3c518036262444d!2sUrdininea%204754%2C%20B1757%20Gregorio%20de%20Laferrere%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1711582000000!5m2!1ses-419!2sar" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016887889407!2d-58.38155708477038!3d-34.603738880459406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb!2sObelisco!5e0!3m2!1ses-419!2sar!4v1612345678901!5m2!1ses-419!2sar" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=-34.770553,-58.586047" target="_blank" class="btn-maps">
+                <a href="https://maps.google.com" target="_blank" class="btn-maps">
                     📍 CÓMO LLEGAR
                 </a>
             </div>
@@ -375,6 +375,11 @@
             const phone = "5491168055586"; 
             const msg = "¡Hola! Confirmo con alegría mi asistencia al primer añito de Catalina. ¡Nos vemos pronto!";
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // FUNCIÓN PARA VOLTEAR TARJETAS AL TOCAR
+        function toggleFlip(card) {
+            card.classList.toggle('is-flipped');
         }
     </script>
 </body>
