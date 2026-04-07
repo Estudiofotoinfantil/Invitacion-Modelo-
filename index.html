@@ -133,7 +133,6 @@
             cursor: pointer;
         }
 
-        /* SOPORTE PARA MÓVIL Y PC */
         .flip-card:hover .flip-card-inner,
         .flip-card.is-flipped .flip-card-inner {
             transform: rotateY(180deg);
@@ -354,7 +353,8 @@
     <script>
         AOS.init({ duration: 900, once: true, offset: 100 });
 
-        const targetDate = new Date("April 4, 2026 17:00:00").getTime();
+        // FECHA ACTUALIZADA A 2027
+        const targetDate = new Date("April 4, 2027 17:00:00").getTime();
         const elDays = document.getElementById("days"), elHours = document.getElementById("hours"), elMins = document.getElementById("minutes"), elSecs = document.getElementById("seconds");
 
         function updateTimer() {
@@ -373,7 +373,7 @@
 
         function confirmarWhatsApp() {
             const phone = "5491130448139"; 
-            const msg = "¡Hola! Confirmo con alegría mi asistencia al primer añito de de tu bebé. ¡Nos vemos pronto! somos estudio_fotoinfantil ";
+            const msg = "¡Hola! Confirmo con alegría mi asistencia al primer añito de Catalina. ¡Nos vemos pronto!";
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
